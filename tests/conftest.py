@@ -4,5 +4,5 @@ from src.item import Item
 
 
 @pytest.fixture
-def item():
-    return Item("ware", 1000.0, 20)
+def test_product():
+    return Item("product", 100.0, 20)
