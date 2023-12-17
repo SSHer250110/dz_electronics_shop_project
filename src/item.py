@@ -41,3 +41,11 @@ class Item:
         if len(name) > 10:
             self.__name = name[:11]
         self.__name = name
+
+    # @classmethod
+    # def instantiate_from_csv(cls, path):
+    #     pass
+
+    @staticmethod
+    def string_to_number(string_int):
+        return int(float(string_int))
