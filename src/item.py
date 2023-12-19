@@ -59,3 +59,9 @@ class Item:
     @staticmethod
     def string_to_number(string_int):
         return int(float(string_int))
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}('{self.__name}', {self.price}, {self.quantity})"
+
+    def __str__(self):
+        return self.__name
