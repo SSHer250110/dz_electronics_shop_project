@@ -47,6 +47,9 @@ class Item:
 
     @classmethod
     def instantiate_from_csv(cls, path):
+        """
+        Класс-метод для создания экземпляров из данных csv файла.
+        """
         Item.all = []
         with open(path, "r", encoding="windows-1251") as file:
             reader = csv.DictReader(file)
@@ -58,4 +61,19 @@ class Item:
 
     @staticmethod
     def string_to_number(string_int):
+        """
+        Статический метод для преобразования строки в целое число.
+        """
         return int(float(string_int))
+
+    def __repr__(self):
+        """
+        Метод для отображения информации в режиме отладки.
+        """
+        return f"{self.__class__.__name__}('{self.__name}', {self.price}, {self.quantity})"
+
+    def __str__(self):
+        """
+        Метод для отображения информации для пользователя.
+        """
+        return self.__name

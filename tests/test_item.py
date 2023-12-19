@@ -31,3 +31,22 @@ def test_string_to_number():
     assert Item.string_to_number("10.25") == 10
     assert Item.string_to_number("0") == 0
     assert Item.string_to_number("-7") == -7
+
+
+def test__repr__():
+    """
+    Тест метода отображающего информацию в режиме отладки.
+    """
+    item_repr = Item("Смартфон", 10000, 20)
+    assert isinstance(item_repr.__repr__(), str)
+    assert len(item_repr.__repr__()) == 27
+
+
+def test__str__():
+    """
+    Тест метода отображающего информацию для пользователя.
+    """
+    item_str = Item("Клавиатура", 75, 5)
+    assert len(item_str.__str__()) == 10
+    assert item_str.__str__() == "Клавиатура"
+    assert isinstance(item_str.__str__(), str)
