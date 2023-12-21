@@ -25,7 +25,8 @@ def test_number_of_sim():
     Тест метода с условиями, присваивающий новое значение атрибуту
     """
     phone = Phone("iPhone 14", 120_000, 5, 5)
-    assert phone.number_of_sim == 5
+    phone.number_of_sim = 2
+    assert phone.number_of_sim == 2
     assert isinstance(phone.number_of_sim, int)
     with pytest.raises(ValueError):
         phone.number_of_sim = 0
