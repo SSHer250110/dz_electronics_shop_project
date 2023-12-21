@@ -66,6 +66,12 @@ class Item:
         """
         return int(float(string_int))
 
+    def __add__(self, other):
+        """
+        Метод по сложению экземпляров классов
+        """
+        return self.quantity + other.quantity
+
     def __repr__(self):
         """
         Метод для отображения информации в режиме отладки.
