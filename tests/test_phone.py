@@ -21,6 +21,9 @@ def test__str__():
 
 
 def test_number_of_sim():
+    """
+    Тест метода с условиями, присваивающий новое значение атрибуту
+    """
     phone = Phone("iPhone 14", 120_000, 5, 5)
     assert phone.number_of_sim == 5
     assert isinstance(phone.number_of_sim, int)
