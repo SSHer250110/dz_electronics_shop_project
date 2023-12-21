@@ -70,7 +70,9 @@ class Item:
         """
         Метод по сложению экземпляров классов
         """
-        return self.quantity + other.quantity
+        if isinstance(other, self.__class__):
+            return self.quantity + other.quantity
+        raise Exception
 
     def __repr__(self):
         """
