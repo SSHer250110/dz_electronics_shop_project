@@ -2,11 +2,21 @@ from src.item import Item
 
 
 class MixinKeyboard:
+    """
+    Класс-миксин, дополнительная функциональность для класса,
+    описывающего товар клавиатура
+    """
 
     def __init__(self):
+        """
+        Создание экземпляра класса язык
+        """
         self._language = "EN"
 
     def change_lang(self):
+        """
+        Метод переключения языка клавиатуры с условиями
+        """
         if self._language == "EN" or self._language == "RU":
             if self._language == "EN":
                 self._language = "RU"
@@ -18,11 +28,21 @@ class MixinKeyboard:
 
 
 class Keyboard(Item, MixinKeyboard):
+    """
+    Класс описывающий товар клавиатура.
+    """
+
     def __init__(self, name: str, price: float, quantity: int):
+        """
+        Создание экземпляра класса клавиатура.
+        """
         super().__init__(name, price, quantity)
         self._language = "EN"
 
     def __str__(self):
+        """
+        Метод для отображения информации для пользователя.
+        """
         if self.name:
             return self.name
         else:
