@@ -7,22 +7,27 @@ class MixinKeyboard:
     описывающего товар клавиатура
     """
 
+    # _language = "EN"
     def __init__(self):
         """
-        Создание экземпляра класса язык раскладки
+        Создание экземпляра класса миксин клавиатура
         """
-        self._language = "EN"
+        self.__language = "EN"
+
+    @property
+    def language(self):
+        return self.__language
 
     def change_lang(self):
         """
         Метод переключения языка клавиатуры с условиями
         """
-        if self._language == "EN" or self._language == "RU":
-            if self._language == "EN":
-                self._language = "RU"
+        if self.__language == "EN" or self.__language == "RU":
+            if self.__language == "EN":
+                self.__language = "RU"
             else:
-                self._language = "EN"
-            return self._language
+                self.__language = "EN"
+            return self.__language
         else:
             raise AttributeError("property 'language' of 'Keyboard' object has no setter")
 
@@ -37,7 +42,6 @@ class Keyboard(Item, MixinKeyboard):
         Создание экземпляра класса клавиатура.
         """
         super().__init__(name, price, quantity)
-        self._language = "EN"
 
     def __str__(self):
         """
@@ -46,8 +50,4 @@ class Keyboard(Item, MixinKeyboard):
         if self.name:
             return self.name
         else:
-            return self._language
-
-    @property
-    def language(self):
-        return self._language
+            return self.__language
