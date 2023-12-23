@@ -9,7 +9,7 @@ class MixinKeyboard:
 
     def __init__(self):
         """
-        Создание экземпляра класса язык
+        Создание экземпляра класса язык раскладки
         """
         self._language = "EN"
 
