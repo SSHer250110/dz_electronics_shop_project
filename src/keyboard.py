@@ -7,7 +7,6 @@ class MixinKeyboard:
     описывающего товар клавиатура
     """
 
-    # _language = "EN"
     def __init__(self):
         """
         Создание экземпляра класса миксин клавиатура
@@ -16,6 +15,9 @@ class MixinKeyboard:
 
     @property
     def language(self):
+        """
+        Обращение к методу как к приватному атрибуту
+        """
         return self.__language
 
     def change_lang(self):
