@@ -7,11 +7,7 @@ class MixinKeyboard:
     описывающего товар клавиатура
     """
 
-    def __init__(self):
-        """
-        Создание экземпляра класса миксин клавиатура
-        """
-        self.__language = "EN"
+    __language = "EN"
 
     @property
     def language(self):
