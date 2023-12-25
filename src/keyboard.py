@@ -37,8 +37,3 @@ class Keyboard(Item, MixinKeyboard):
     Класс описывающий товар клавиатура.
     """
     pass
-
-
-kb = Keyboard('Dark Project KD87A', 9600, 5)
-kb.change_lang()
-print(str(kb.language))
