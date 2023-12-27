@@ -3,9 +3,6 @@ import csv
 from utils import FILE_CSV
 
 
-# from utils import FILE_CSV
-
-
 class Item:
     """
     Класс для представления товара в магазине.
@@ -64,7 +61,13 @@ class Item:
                     name = row["name"]
                     price = row["price"]
                     quantity = row["quantity"]
+                    if row["name"] == "" or row["price"] == "" or row["quantity"] == "":
+                        raise InstantiateCSVError
                     cls(name, price, quantity)
+        except KeyError:
+            print("InstantiateCSVError: Файл item.csv поврежден")
+        except InstantiateCSVError as ex:
+            print(ex.message)
         except FileNotFoundError:
             print("FileNotFoundError: Отсутствует файл item.csv")
 
@@ -98,9 +101,4 @@ class Item:
 
 class InstantiateCSVError(Exception):
     def __init__(self, *args, **kwargs):
-        self.message = args[0] if args else "InstantiateCSVError: Файл item.csv поврежден"
-
-    def __str__(self):
-        return self.message
-
-Item.instantiate_from_csv()
+        self.message = "InstantiateCSVError: Файл item.csv поврежден"
