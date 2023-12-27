@@ -32,15 +32,7 @@ def test_instantiate_from_csv_exception():
     Тесты метода
     """
     with pytest.raises(InstantiateCSVError, match="InstantiateCSVError: Файл item.csv поврежден"):
-        item = Item('Телефон', 10000, 5)
-        item.instantiate_from_csv(EXC_FILE_TEST_CSV)
-    # with pytest.raises(FileNotFoundError, match="FileNotFoundError: Отсутствует файл item.csv"):
-    #     Item.instantiate_from_csv()
-    #     raise FileNotFoundError
-    # with pytest.raises(KeyError):
-    #     Item.instantiate_from_csv(EXC_FILE_TEST_CSV)
-    #     raise KeyError
-
+        Item.instantiate_from_csv(EXC_FILE_TEST_CSV)
 
 
 def test_string_to_number():
