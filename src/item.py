@@ -66,8 +66,9 @@ class Item:
                     cls(name, price, quantity)
         except KeyError:
             print("InstantiateCSVError: Файл item.csv поврежден")
-        except InstantiateCSVError as ex:
-            print(ex.message)
+        except InstantiateCSVError:
+            # print(ex.message)
+            raise InstantiateCSVError("InstantiateCSVError: Файл item.csv поврежден")
         except FileNotFoundError:
             print("FileNotFoundError: Отсутствует файл item.csv")
 
