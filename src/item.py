@@ -64,6 +64,8 @@ class Item:
                     if row["name"] == "" or row["price"] == "" or row["quantity"] == "":
                         raise InstantiateCSVError
                     cls(name, price, quantity)
+        except KeyError:
+            print("InstantiateCSVError: Файл item.csv поврежден")
         except InstantiateCSVError as ex:
             print(ex.message)
         except FileNotFoundError:
