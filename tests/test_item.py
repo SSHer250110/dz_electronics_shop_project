@@ -7,10 +7,16 @@ from utils import FILE_TEST_CSV, EXC_FILE_TEST_CSV
 
 
 def test_calculate_total_price(test_product):
+    """
+    Тест метода рассчитывающего общую стоимость конкретного товара в магазине.
+    """
     assert test_product.calculate_total_price() == 2000.0
 
 
 def test_apply_discount(test_product):
+    """
+    Тест метода применяющего установленную скидку для конкретного товара.
+    """
     assert test_product.price == 100.00
     test_product.pay_rate = 0.5
     test_product.apply_discount()
@@ -29,7 +35,7 @@ def test_instantiate_from_csv():
 
 def test_instantiate_from_csv_exception():
     """
-    Тесты метода
+    Тест исключения InstantiateCSVError
     """
     with pytest.raises(InstantiateCSVError, match="InstantiateCSVError: Файл item.csv поврежден"):
         Item.instantiate_from_csv(EXC_FILE_TEST_CSV)
