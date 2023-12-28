@@ -64,13 +64,10 @@ class Item:
                     if row["name"] == "" or row["price"] == "" or row["quantity"] == "":
                         raise InstantiateCSVError
                     cls(name, price, quantity)
-        except KeyError:
-            print("InstantiateCSVError: Файл item.csv поврежден")
-        except InstantiateCSVError:
-            # print(ex.message)
+        except (InstantiateCSVError, KeyError):
             raise InstantiateCSVError("InstantiateCSVError: Файл item.csv поврежден")
         except FileNotFoundError:
-            print("FileNotFoundError: Отсутствует файл item.csv")
+            FileNotFoundError("FileNotFoundError: Отсутствует файл item.csv")
 
     @staticmethod
     def string_to_number(string_int):
